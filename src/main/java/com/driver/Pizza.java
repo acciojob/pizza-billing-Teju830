@@ -5,26 +5,27 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
-    private boolean isBill =false;
+    private boolean isBill = false;
     private  int cheese = -1;
     private  int toppings = -1;
     private int takeaway = -1;
 
-   final private int priceofveg = 300;
-    final private int priceofnonveg = 400;
-    final private int extracheeseprice = 80;
-    final private int extratoppingsforveg = 70;
-    final private int extratoppingsfornonveg = 120;
+   final private int basePriceofVeg = 300;
+    final private int basePriceOfNonVeg = 400;
+    final private int extraCheesePrice = 80;
+    final private int ExtraToppingsforveg = 70;
+    final private int Extratoppingsfornonveg = 120;
     final private int papercover=20;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         // your code goes here
         if(isVeg){
-            this.price= priceofveg;
+            this.price= basePriceofVeg;
         }else{
-            this.price = priceofnonveg;
+            this.price = basePriceOfNonVeg;
         }
+        this.bill = "";
     }
 
     public int getPrice(){
@@ -35,8 +36,8 @@ public class Pizza {
     public void addExtraCheese(){
         // your code goes here
         if(cheese==-1){
-            this.price+=extracheeseprice;
-            cheese=extracheeseprice;
+            this.price+=extraCheesePrice;
+            cheese=extraCheesePrice;
             return;
         }
       return;
@@ -46,12 +47,12 @@ public class Pizza {
         // your code goes here
         if(toppings == -1){
             if(this.isVeg == true){
-                this.price+=extratoppingsforveg;
-                toppings = extratoppingsforveg;
+                this.price+=ExtraToppingsforveg;
+                toppings = ExtraToppingsforveg;
                 return;
             }
-            this.price += extratoppingsfornonveg;
-            toppings = extratoppingsfornonveg;
+            this.price += Extratoppingsfornonveg;
+            toppings = Extratoppingsfornonveg;
             return;
         }
         return;
@@ -69,9 +70,9 @@ public class Pizza {
         // your code goes here
         if(isBill == false){
             if(isVeg == true)
-                bill +="Base Price Of The Pizza: "+priceofveg +"\n";
+                bill += "Base Price Of The Pizza: "+ basePriceofVeg +"\n";
             else
-                bill +="Base Price Of The Pizza: "+priceofnonveg +"\n";
+                bill +="Base Price Of The Pizza: "+ basePriceOfNonVeg +"\n";
             if(cheese !=-1)
                 bill += "Extra Cheese Added: "+ cheese +"\n";
             if(toppings !=-1)
